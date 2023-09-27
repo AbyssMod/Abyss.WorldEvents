@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net48</TargetFramework>
+        <RootNamespace>Abyss</RootNamespace>
+        <Configurations>Debug;Release</Configurations>
+        <DebugType>embedded</DebugType>
+        <LangVersion>default</LangVersion>
+        <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+
+        <Nullable>enable</Nullable>
+
+        <Platforms>AnyCPU</Platforms>
+
+        <ProjectName>Abyss.WorldEvents</ProjectName>
+
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+        <Version>0.0.1</Version>
+
+        <Authors>GrahamKracker</Authors>
+        <DontUseDredgeLibs>true</DontUseDredgeLibs>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Abyss.Core\Abyss.Core.csproj" Private="false"/>
+    </ItemGroup>
+    
+    <ItemGroup>
+        <None Include=".github\workflows\build.yml" />
+    </ItemGroup>
+
+    <Import Condition="Exists('..\..\dredge.targets')" Project="..\..\dredge.targets"/>
+    <Import Condition="!Exists('..\..\dredge.targets')" Project="..\Abyss.Core\dredge.targets"/>
+</Project>
